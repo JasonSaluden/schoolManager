@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Toutes les Classes{% endblock %}
+
+{% block body %}
+    <h1>Toutes les Classes</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nom de la classe</th>
+                <th>Autres informations</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for classe in classes %}
+                <tr>
+                    <td>{{ classe.id }}</td>
+                    <td>{{ classe.nom }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

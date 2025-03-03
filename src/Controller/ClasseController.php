@@ -15,4 +15,14 @@ final class ClasseController extends AbstractController
             'controller_name' => 'ClasseController',
         ]);
     }
+
+    #[Route('/classes', name: 'app_classes')]
+    public function indexAll(ClasseRepository $classeRepository): Response
+    {
+        $classes = $classeRepository->findAll();
+
+        return $this->render('classe/index_all.html.twig', [
+            'classes' => $classes,
+        ]);
+    }
 }

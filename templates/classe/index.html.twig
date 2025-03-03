@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ClasseController!{% endblock %}
+{% block title %}Quelle classe voulez vous consulter ?{% endblock %}
 
 {% block body %}
 <style>
@@ -9,12 +9,20 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <h1>Salut!</h1>
 
-    This friendly message is coming from:
+    Quelle classe voulez vous consulter ?
     <ul>
-        <li>Your controller at <code>C:/Users/salud/schoolManager/src/Controller/ClasseController.php</code></li>
-        <li>Your template at <code>C:/Users/salud/schoolManager/templates/classe/index.html.twig</code></li>
+        <li>CP</li>
+        <li>CE1</li>
+        <li>CE2</li>
+        <li>CM1</li>
+        <li>CM2</li>
+    </ul>
+    <ul>
+    <button>
+    Toutes les classes
+    </button>
     </ul>
 </div>
 {% endblock %}

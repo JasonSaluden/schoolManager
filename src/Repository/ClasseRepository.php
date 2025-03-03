@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\Classe;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use App\Repository\ClasseRepository;
 
 /**
  * @extends ServiceEntityRepository<Classe>
