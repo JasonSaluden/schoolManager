@@ -1,20 +1,39 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello EleveController!{% endblock %}
+{% block title %}Eleve index{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <h1>Eleve index</h1>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom_eleve</th>
+                <th>Prenom_eleve</th>
+                <th>Date_naissance_eleve</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for eleve in eleves %}
+            <tr>
+                <td>{{ eleve.id }}</td>
+                <td>{{ eleve.nomEleve }}</td>
+                <td>{{ eleve.prenomEleve }}</td>
+                <td>{{ eleve.dateNaissanceEleve ? eleve.dateNaissanceEleve|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_eleve_show', {'id': eleve.id}) }}">show</a>
+                    <a href="{{ path('app_eleve_edit', {'id': eleve.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>C:/Users/salud/schoolManager/src/Controller/EleveController.php</code></li>
-        <li>Your template at <code>C:/Users/salud/schoolManager/templates/eleve/index.html.twig</code></li>
-    </ul>
-</div>
+    <a href="{{ path('app_eleve_new') }}">Create new</a>
 {% endblock %}

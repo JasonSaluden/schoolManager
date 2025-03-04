@@ -1,28 +1,37 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Quelle classe voulez vous consulter ?{% endblock %}
+{% block title %}Classe index{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <h1>Liste des classes</h1>
 
-<div class="example-wrapper">
-    <h1>Salut!</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom_classe</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for classe in classes %}
+            <tr>
+                <td>{{ classe.id }}</td>
+                <td>{{ classe.nomClasse }}</td>
+                <td>
+                    <a href="{{ path('app_classe_show', {'id': classe.id}) }}">show</a>
+                    <a href="{{ path('app_classe_edit', {'id': classe.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 
-    Quelle classe voulez vous consulter ?
-    <ul>
-        <li>CP</li>
-        <li>CE1</li>
-        <li>CE2</li>
-        <li>CM1</li>
-        <li>CM2</li>
-    </ul>
-    <ul>
-    <button>
-    Toutes les classes
-    </button>
-    </ul>
-</div>
+    <a href="{{ path('app_classe_new') }}">Create new</a>
+
+    <button>Consulter toutes les classes</button>
 {% endblock %}
